@@ -1,0 +1,26 @@
+;
+; mqtt-load-average.conf - for supervisord configuration file
+;
+; install
+;     $ sudo apt-get install supervisor
+;     $ sudo cp mqtt-load-average.conf.sample /etc/supervisor/conf.d/mqtt-load-average.conf
+;     $ sudo vi /etc/supervisor/conf.d/mqtt-load-average.conf
+;       (fix path, etc...)
+;     $ sudo supervisorctl reread
+;     $ sudo supervisorctl add mqtt-load-average
+;     $ sudo supervisorctl status
+;     mqtt-arpf-active-client  RUNNING pid 8192, uptime 0:00:30
+;
+[program:mqtt-load-average]
+command                 = /usr/bin/ruby ./mqtt-load-average.rb
+directory               = /home/test/work/mqtt-load-average/
+user                    = test
+numprocs                = 1
+autostart               = true
+autorestart             = true
+redirect_stderr         = true
+stdout_logfile          = /home/test/work/mqtt-load-average/log.txt
+startsecs               = 1
+startretries            = 10
+stdout_logfile_maxbytes = 1MB
+stdout_logfile_backups  = 1

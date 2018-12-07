@@ -1,0 +1,7 @@
+host: iot.eclipse.org
+port: 1883
+clean_session: true
+use_auth: false
+username: username
+password: password
+publish_topic: load_average
