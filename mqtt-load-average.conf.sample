@@ -6,10 +6,7 @@
 ;     $ sudo cp mqtt-load-average.conf.sample /etc/supervisor/conf.d/mqtt-load-average.conf
 ;     $ sudo vi /etc/supervisor/conf.d/mqtt-load-average.conf
 ;       (fix path, etc...)
-;     $ sudo supervisorctl reread
-;     $ sudo supervisorctl add mqtt-load-average
-;     $ sudo supervisorctl status
-;     mqtt-arpf-active-client  RUNNING pid 8192, uptime 0:00:30
+;     $ sudo supervisorctl update && sudo supervisorctl status
 ;
 [program:mqtt-load-average]
 command                 = /usr/bin/ruby ./mqtt-load-average.rb
